@@ -1,16 +1,139 @@
 body {
     background-color: #b9a8d4;
 }
-.gallery {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 25% 25% 25%;
-    justify-content: center;
-}
-.gallery img {
-    width: 90%;
-    margin: 5%;
-}
+
 li {
     display: inline;
+}
+
+nav {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+}
+
+nav a {
+    background: yellow;
+    font-size: 21px;
+}
+
+nav li {
+    margin: 10px;
+}
+
+nav .active a{
+	background: white;
+    text-transform: uppercase;
+	text-align: center;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: bolder;
+    margin: 20px;
+    margin-bottom: 10px;
+    font-family:'Courier New', Courier, monospace;
+}
+
+h1:before, h1:after {
+    content: "\2764";
+}
+
+main p {
+    margin: 20px;
+    font-size: 20px;
+}
+
+footer p {
+    margin: 10px;
+    font-size: 15px;
+    color: #3a3737;
+}
+
+.skip {
+    position: absolute;
+    left: 5%;
+    transform: translateY(-100%);
+}
+
+.skip {
+    background: white;
+    height: 30px;
+    left: 5%;
+    position: absolute;
+    transform: translateY(-100%);
+    transition: transform 0.5s;
+}
+  
+.skip:focus {
+    transform: translateY(0%);
+}
+
+@media (prefers-reduced-motion) {
+    .skip {
+        -webkit-transition: none !important;
+        -moz-transition: none !important;
+        -o-transition: none !important;
+        transition: none !important;
+    }
+}
+
+
+
+.gallery_dough {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 33% 33%;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.gallery_dough img {
+    width: 90%;
+    margin: 5%;
+    border-radius: 5px;
+}
+
+.gallery_bread {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.gallery_bread img {
+    width: 60%;
+    height:fit-content;
+    margin: 5%;
+    border-radius: 5px;
+}
+
+
+
+@media only screen and (min-width: 700px) {
+    
+    .gallery_dough {
+        grid-template-columns: 25% 25% 25%;
+    }
+    
+    .gallery_bread img {
+        width: 40%;
+    }
+}
+
+
+
+@media only screen and (min-width: 950px) {
+
+    h1 {
+        margin-top: 50px;
+    }
+
+    .gallery_dough {
+        grid-template-columns: 20% 20% 20% 20%;
+        margin-top: 100px;
+    }
+    
+    .gallery_bread img {
+        width: 20%;
+    }
 }
