@@ -1,123 +1,229 @@
+canvas {
+    display: block;
+    margin-left: 350px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
 body {
-    background-color: #b9a8d4;
+    /* background-color: rgb(12, 9, 20); */
+    /* background-color: rgb(0, 0, 230); */
+
+    /*grid of dots*/
+    /* background-size: 40px 40px;
+    background-image: radial-gradient(circle, #000000 1px, rgba(0, 0, 0, 0) 1px); */
+
+    background:
+        linear-gradient(-90deg, rgb(102, 102, 0) 0.3px, transparent 0.3px),
+        linear-gradient(rgb(102, 102, 0) 0.3px, transparent 0.3px),
+        /* rgb(0, 0, 230); */
+        rgb(12, 9, 20);
+    background-size:
+        40px 40px,
+        40px 40px,
+        80px 80px;
+    font-family:'Times New Roman';
+    color: rgb(241, 255, 229);
 }
 
 li {
-    display: inline;
-}
-
-nav {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    margin-left: 50px;
+    display: block;
+    border: none;
+    border-radius: 5px;
 }
 
 nav a {
     background: yellow;
-    font-size: 21px;
+    font-size: 16px;
+    border: none;
+    padding: 2px;
+}
+
+nav a:hover {
+    text-transform: uppercase;
 }
 
 nav li {
-    margin: 10px;
+    margin: 15px;
+    margin-left: 30px;
 }
 
 nav .active a{
-	background: white;
+	background: #f1e6fa;
     text-transform: uppercase;
 	text-align: center;
     text-decoration: none;
+    color: #0000ff;
+}
+
+nav .category {
+    font-size: 20px;
+    text-transform: uppercase;
+	text-align: left;
+    text-decoration: none;
+    color: yellow;
+}
+
+p {
+    width: 80%;
+    text-align: justify;
 }
 
 h1 {
+    text-align: left;
+    display:block;
     font-size: 30px;
-    font-weight: bolder;
-    margin: 20px;
-    margin-bottom: 10px;
-    font-family:'Courier New', Courier, monospace;
+    /* font-weight: bolder; */
+    margin-left: 350px;
+    margin-bottom: 30px;
+    font-family:'Times New Roman';
 }
 
-h1:before, h1:after {
-    content: "\2764";
+#me {
+    height: 30%;
+    width: 30%;
+    margin-left: 150px;
+    margin-bottom: 100px;
 }
 
 main p {
-    margin: 20px;
+    margin: auto;
+    margin-top: 40px;
     font-size: 20px;
-}
-
-footer p {
-    margin: 10px;
-    font-size: 15px;
-    color: #3a3737;
+    padding-bottom: 40px;
 }
 
 .skip {
-    position: absolute;
-    left: 5%;
-    transform: translateY(-100%);
-}
-
-.skip {
-    background: white;
+    background: #f1e6fa;
     height: 30px;
     left: 5%;
+    padding: 8px;
     position: absolute;
-    transform: translateY(-100%);
-    transition: transform 0.5s;
+    transform: translateY(-200%);
 }
   
 .skip:focus {
     transform: translateY(0%);
+    position: relative;
 }
 
-@media (prefers-reduced-motion) {
-    .skip {
-        -webkit-transition: none !important;
-        -moz-transition: none !important;
-        -o-transition: none !important;
-        transition: none !important;
-    }
-}
-
-
-
-.gallery_dough {
+.gallery {
     display: grid;
     width: 100%;
-    grid-template-columns: 33% 33%;
-    justify-content: center;
+    height: 100%;
+    grid-template-columns: 80%;
+    justify-content: space-evenly;
     margin-bottom: 50px;
+    align-items: center;
 }
-.gallery_dough img {
+.gallery img {
     width: 90%;
     margin: 5%;
-    border-radius: 5px;
 }
 
-.gallery_bread {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+
+.p5_gallery {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 90%;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+    align-items: center;
+}
+
+.p5_gallery img {
+    width: 90%;
     margin-bottom: 50px;
 }
-.gallery_bread img {
-    width: 60%;
-    height:fit-content;
-    margin: 5%;
-    border-radius: 5px;
+
+.myButtons {
+    position: absolute;
+    background-color: transparent;
+    color: white;
+    border: solid 1px white;
+    font-family:'Times New Roman';
 }
 
-
-
-@media only screen and (min-width: 700px) {
+/* Styles the whole slider */
+.mySliders{
+    width: 80px;
+    background-color: transparent;
+    position: absolute;
     
-    .gallery_dough {
+    /* Removes some defaults */
+    -webkit-appearance: none;
+  }
+  
+  
+  /* These styles affect what happens when the cursor is focused on the slider (i.e. clicking it) */
+  .mySliders:focus {
+    
+    /* Stops the default outline showing up */
+    outline: none;
+  }
+  
+  /* This is the "track" that the slider sits on  */
+  .mySliders::-webkit-slider-runnable-track {
+    background: #000000;
+    height: 3px;
+    -webkit-appearance: none;
+    
+    /* Turns the cursor into the hand pointer icon when hovering over the slider  */
+    cursor: pointer;
+    
+  }
+  
+  /* This is the moveable bit of the slider, known as the "thumb"*/
+  .mySliders::-webkit-slider-thumb {
+    width: 15px;
+    height: 15px;
+    background: #5500cc;
+    cursor: pointer;
+    -webkit-appearance: none;
+    
+    /* negative top padding moves it up */
+    margin-top: -6px;
+  
+    
+    /* Border radius gives rounded corners, if they're big enough, you end up with circles */
+    border-radius: 8px;
+    
+  }
+
+  .pdf_links {
+    margin-left: 125px;
+    margin-bottom: 25px;
+  }
+
+  .pdf a{
+    color: lime;
+    font-size: 24px;
+  }
+
+  .pdf a:hover {
+    text-transform: uppercase;
+}
+
+@media only screen and (min-width: 650px) {
+
+    h1 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .gallery {
         grid-template-columns: 25% 25% 25%;
     }
-    
-    .gallery_bread img {
-        width: 40%;
+    .gallery img {
+        width: 100%;
     }
+
+    .p5_gallery {
+        grid-template-columns: 40% 40%;
+    }
+    /* .p5_gallery img {
+        width: 100%;
+    } */
 }
 
 
@@ -127,13 +233,18 @@ footer p {
     h1 {
         margin-top: 50px;
     }
-
-    .gallery_dough {
-        grid-template-columns: 20% 20% 20% 20%;
-        margin-top: 100px;
-    }
     
-    .gallery_bread img {
-        width: 20%;
+    .gallery {
+        grid-template-columns: 20% 20% 20% 20%;
+    }
+    .gallery img {
+        width: 100%;
+    }
+
+    .p5_gallery {
+        grid-template-columns: 30% 30% 30%;
+    }
+    .p5_gallery img {
+        width: 100%;
     }
 }
