@@ -192,16 +192,27 @@ main p {
 
   .pdf_links {
     margin-left: 125px;
-    margin-bottom: 25px;
+    margin-bottom: 100px;
   }
 
-  .pdf a{
+  .pdf {
+    margin-bottom: 10px;
+  }
+
+  .pdf a {
     color: lime;
     font-size: 24px;
   }
 
   .pdf a:hover {
     text-transform: uppercase;
+}
+
+.pdf_header {
+    font-size: 26px;
+    color: yellow;
+    text-transform: uppercase;
+    margin-top: 25px;
 }
 
 @media only screen and (min-width: 650px) {
