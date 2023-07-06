@@ -1,6 +1,6 @@
 canvas {
     display: block;
-    margin-left: 350px;
+    margin: auto;
     margin-top: 30px;
     margin-bottom: 50px;
 }
@@ -12,21 +12,33 @@ body {
     /* background-size: 40px 40px;
     background-image: radial-gradient(circle, #000000 1px, rgba(0, 0, 0, 0) 1px); */
 
-    background:
+    /* background:
         linear-gradient(-90deg, rgb(102, 102, 0) 0.3px, transparent 0.3px),
         linear-gradient(rgb(102, 102, 0) 0.3px, transparent 0.3px),
         /* rgb(0, 0, 230); */
-        rgb(12, 9, 20);
+     /*   rgb(12, 9, 20);
     background-size:
         40px 40px,
         40px 40px,
-        80px 80px;
+        80px 80px; */
+
+
+
+    background-color: blue;
     font-family:'Times New Roman';
-    color: rgb(241, 255, 229);
+    /* color: rgb(241, 255, 229); */
+    color: rgb(251, 255, 0);
 }
 
-nav {
-    display: inline;
+ul {
+    display: block;
+    /* grid-template-columns: 23% 23% 23% 23%;
+    width: 100%;
+    justify-content: space-evenly;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 10px;
+    align-items: center; */
 }
 
 nav a {
@@ -41,8 +53,8 @@ nav a:hover {
 }
 
 nav li {
-    margin: 15px;
-    margin-left: 30px;
+    margin: 3px;
+    display: inline;
 }
 
 nav .active a{
@@ -60,23 +72,28 @@ nav .category {
     text-decoration: none;
     color: yellow;
 }
+nav img {
+    margin-top: 8px;
+    
+}
 
 h1 {
-    text-align: left;
-    display:block;
+    /* text-align: left; */
+    /* display:block; */
     font-size: 32px;
-    /* font-weight: bolder; */
-    margin-top: 75px;
-    margin-left: 200px;
-    margin-bottom: 20px;
+    margin:auto;
+    margin-top: 50px;
+    text-align: center;
+    /* margin-top: 75px; */
+    /* margin-left: 200px; */
+    /* margin-bottom: 20px; */
     font-family:'Times New Roman';
 }
 
 img#me {
-    height: 30%;
-    width: 30%;
-    margin-left: 200px;
-    margin-bottom: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 514px;
     height: 682px;
 }
@@ -87,7 +104,7 @@ main p {
     font-size: 20px;
     padding-bottom: 40px;
     width: 800px;
-    margin-left: 200px;
+    /* margin-left: 200px; */
 }
 
 .skip {
@@ -178,34 +195,24 @@ main p {
     background: #5500cc;
     cursor: pointer;
     -webkit-appearance: none;
-    
-    /* negative top padding moves it up */
     margin-top: -6px;
-  
-    
-    /* Border radius gives rounded corners, if they're big enough, you end up with circles */
     border-radius: 8px;
-    
   }
 
   .pdf_links {
     margin-left: 125px;
     margin-bottom: 100px;
   }
-
   .pdf {
     margin-bottom: 10px;
   }
-
   .pdf a {
     color: lime;
     font-size: 24px;
-  }
-
+  }     
   .pdf a:hover {
     text-transform: uppercase;
 }
-
 .pdf_header {
     font-size: 26px;
     color: yellow;
@@ -216,8 +223,8 @@ main p {
 @media only screen and (min-width: 650px) {
 
     h1 {
-        margin-top: 30px;
-        margin-bottom: 30px;
+        /* margin-top: 30px;
+        margin-bottom: 30px; */
     }
     
     .gallery {
@@ -240,7 +247,7 @@ main p {
 @media only screen and (min-width: 950px) {
 
     h1 {
-        margin-top: 50px;
+        /* margin-top: 50px; */
     }
     
     .gallery {

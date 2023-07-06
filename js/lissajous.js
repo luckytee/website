@@ -10,15 +10,15 @@ function setup() {
   function draw() {
     background(0);
     
-    fill(102, 204, 0);
+    fill(102, 204, 0, 50);
     noStroke();
     
-    for (i = 0; i < 50; i++) {
+    for (i = 0; i < 400; i++) {
   
         x = 160*sin(1*t+PI/2);
         y = 160*sin(3*t);
       
-      square(width/2+y, height/2+x, 8);
+      square(width/2+y, height/2+x, 30);
       
         // t+=17;
       t += mouseX/10;
