@@ -28,20 +28,25 @@ function draw() {
   background(255);
   image(capture, 0, 0, w, h);
   
-  strokeWeight(w/80);
-  fill(255, 255, 0);
+  // strokeWeight(w/80);
+  //yellow
+  // fill(255, 255, 0);
+  //blue
+  noStroke();
+  fill(0,0,255);
   circle(faceX, faceY, w/3);
-  fill(0);
   
-  //eyes
-  ellipse(faceX - w/22, faceY - w/22, w/42, w/14);
-  ellipse(faceX + w/22, faceY - w/22, w/42, w/14);
   
-  //smile
-  let diam = w/3;
-  let startAng = 0.1 * PI
-  let endAng = 0.9 * PI
-  let smileDiam = 0.6 * diam;
-  noFill();
-  arc(faceX, faceY, smileDiam, smileDiam, startAng, endAng);
+  // //eyes
+  // fill(0);
+  // ellipse(faceX - w/22, faceY - w/22, w/42, w/14);
+  // ellipse(faceX + w/22, faceY - w/22, w/42, w/14);
+  
+  // //smile
+  // let diam = w/3;
+  // let startAng = 0.1 * PI
+  // let endAng = 0.9 * PI
+  // let smileDiam = 0.6 * diam;
+  // noFill();
+  // arc(faceX, faceY, smileDiam, smileDiam, startAng, endAng);
 }
