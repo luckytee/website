@@ -54,6 +54,11 @@ nav a {
 nav a:hover {
     text-transform: uppercase;
     font-size: 60px;
+    /* font-size: 36px; */
+    /* background: none;
+    color: lime;
+    border: solid white 8px;
+    border-radius: 25px; */
 }
 
 nav li {
@@ -70,6 +75,7 @@ nav .active {
 	text-align: center;
     text-decoration: none;
     color: #0000ff;
+   
 }
 
 nav .category {
