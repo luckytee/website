@@ -108,6 +108,21 @@ h1 {
     /* font-family: "Comic Sans MS", "Comic Sans", cursive; */
 }
 
+h2 {
+    font-size: 26px;
+    color: lime;
+    text-transform: uppercase;
+    margin:auto;
+}
+
+.model_info {
+    color: yellow;
+    font-size: 20px;
+    padding-bottom: 40px;
+    width: 810px;
+    margin: auto;
+}
+
 img#me {
     display: block;
     margin-left: auto;

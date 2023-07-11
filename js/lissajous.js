@@ -18,7 +18,10 @@ function setup() {
         x = 160*sin(1*t+PI/2);
         y = 160*sin(3*t);
       
-      square(width/2+y, height/2+x, 30);
+      push();
+      translate(width/2 + y, height/2 + x);
+      square(-15, -15, 30);
+      pop();
       
         // t+=17;
       t += mouseX/10;

@@ -12,18 +12,12 @@
     <title>random circles</title>
     <script src="libraries/p5.js"></script>
     <script src="libraries/p5.dom.js"></script>
-    <script src="js/day_night_game_of_life.js"></script>
 </head>
 <body>
     <a class = "skip" href="#skip">Skip to Main Content</a>
     <header>
-        <!-- <button type="button" id="mode" >night mode</button> -->
         <nav>
           <ul class="nav_links">
-            <!-- <li class="category">hello</li>
-            <li class="category">creative computing</li>
-            <li class="category">other projects</li>
-            <li class="category">resources</li> -->
 
             <li class="nav_item"><a href= ./index.html>about</a></li>
             <li class="category">world</li>
@@ -51,9 +45,18 @@
       </nav>
     </header>
     <main class="about" id="skip">
+
       <h1>random circles w/ center tracing</h1>
       <script src="js/balls.js"></script>
+
   </main>
-  <script src="js/style.js"></script>
+
+  <h2>what it is</h2>
+  <p class="model_info">this model depicts several white “balls” bouncing across the canvas with a single yellow ball tracing the path of the average position of the white group. each white ball begins with random coordinates and random x/y velocities, and respects the edges of the canvas.</p>
+  <h2>things to notice</h2>
+  <p class="model_info">using the buttons in the bottom left of the canvas, try adding and subtracting balls from the model. How does this affect the path traced by the “average” ball, and the ball’s range of motion? where does the break occur between the average ball producing straight lines and it only producing curves? </p>
+  <h2>further research</h2>
+  <p class="model_info">this model could be implemented into different phases to examine emergent patterns of the balls’ motion: extending the canvas size as well as constructing the balls using patterned, rather than random parameters would yield worthwhile results.</p>
+
 </body>
 </html>
