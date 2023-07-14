@@ -4,6 +4,7 @@ canvas {
     margin-top: 30px;
     margin-bottom: 50px;
 }
+
 body {
     /* background-color: rgb(12, 9, 20); */
     /* background-color: rgb(0, 0, 230); */
@@ -16,7 +17,7 @@ body {
         linear-gradient(-90deg, rgb(102, 102, 0) 0.3px, transparent 0.3px),
         linear-gradient(rgb(102, 102, 0) 0.3px, transparent 0.3px),
         /* rgb(0, 0, 230); */
-     /*   rgb(12, 9, 20);
+    /*   rgb(12, 9, 20);
     background-size:
         40px 40px,
         40px 40px,
@@ -25,7 +26,7 @@ body {
 
 
     background-color: blue;
-    font-family:'Times New Roman';
+    font-family: 'Times New Roman';
     /* color: rgb(241, 255, 229); */
     color: rgb(251, 255, 0);
 }
@@ -68,51 +69,58 @@ nav li {
 
 nav .active {
     font-size: 60px;
-	/* background: #f1e6fa; */
+    /* background: #f1e6fa; */
     background: lightgray;
     background: black;
     text-transform: uppercase;
-	text-align: center;
+    text-align: center;
     text-decoration: none;
     color: #0000ff;
-   
+
+}
+
+nav a:visited {
+    color: blue;
 }
 
 nav .category {
     font-size: 60px;
     text-transform: uppercase;
-	text-align: left;
+    text-align: left;
     text-decoration: none;
     color: yellow;
     /* font-family: "Comic Sans MS", "Comic Sans", cursive; */
 }
+
 nav img {
     margin-top: 8px;
-    
+
 }
 
 h1 {
     /* text-align: left; */
-    display:block;
-    color: blue;;
+    display: block;
+    color: blue;
+    ;
     background-color: yellow;
     font-size: 50px;
-    margin:auto;
+    margin: auto;
     margin-top: 30px;
     margin-bottom: 50px;
     text-align: center;
     /* margin-top: 75px; */
     /* margin-left: 200px; */
     /* margin-bottom: 20px; */
-    font-family:'Times New Roman';
+    font-family: 'Times New Roman';
     /* font-family: "Comic Sans MS", "Comic Sans", cursive; */
 }
 
-h2 {
+body h2 {
     font-size: 26px;
     color: lime;
     text-transform: uppercase;
-    margin:auto;
+    margin: auto;
+    text-align: center;
 }
 
 .model_info {
@@ -140,6 +148,7 @@ main p {
     padding-bottom: 40px;
     width: 810px;
     /* margin-left: 200px; */
+
 }
 
 main p a {
@@ -169,7 +178,7 @@ figcaption {
     position: absolute;
     transform: translateY(-200%);
 }
-  
+
 .skip:focus {
     transform: translateY(0%);
     position: relative;
@@ -184,6 +193,7 @@ figcaption {
     margin-bottom: 50px;
     align-items: center;
 }
+
 .gallery img {
     width: 90%;
     margin: 5%;
@@ -210,37 +220,37 @@ figcaption {
     background-color: transparent;
     color: white;
     border: solid 1px white;
-    font-family:'Times New Roman';
+    font-family: 'Times New Roman';
 }
 
 /* Styles the whole slider */
-.mySliders{
+.mySliders {
     width: 80px;
     background-color: transparent;
     position: absolute;
-    
+
     /* Removes some defaults */
     -webkit-appearance: none;
-  }
-  
-  /* These styles affect what happens when the cursor is focused on the slider (i.e. clicking it) */
-  .mySliders:focus {
-    
+}
+
+/* These styles affect what happens when the cursor is focused on the slider (i.e. clicking it) */
+.mySliders:focus {
+
     /* Stops the default outline showing up */
     outline: none;
-  }
-  
-  /* This is the "track" that the slider sits on  */
-  .mySliders::-webkit-slider-runnable-track {
+}
+
+/* This is the "track" that the slider sits on  */
+.mySliders::-webkit-slider-runnable-track {
     background: #000000;
     height: 3px;
     -webkit-appearance: none;
     cursor: pointer;
-    
-  }
-  
-  /* This is the moveable bit of the slider, known as the "thumb"*/
-  .mySliders::-webkit-slider-thumb {
+
+}
+
+/* This is the moveable bit of the slider, known as the "thumb"*/
+.mySliders::-webkit-slider-thumb {
     width: 15px;
     height: 15px;
     background: #5500cc;
@@ -248,28 +258,32 @@ figcaption {
     -webkit-appearance: none;
     margin-top: -6px;
     border-radius: 8px;
-  }
+}
 
-  .pdf_links {
+.pdf_links {
     margin-left: 125px;
     margin-bottom: 100px;
-  }
-  .pdf {
+}
+
+.pdf {
     margin-bottom: 10px;
-  }
-  .pdf a {
+}
+
+.pdf a {
     color: lime;
     font-size: 36px;
-  }     
-  .pdf a:hover {
+}
+
+.pdf a:hover {
     text-transform: uppercase;
-    }
-    .pdf_header {
-        font-size: 26px;
-        color: yellow;
-        text-transform: uppercase;
-        margin-top: 25px;
-    }
+}
+
+.pdf_header {
+    font-size: 26px;
+    color: yellow;
+    text-transform: uppercase;
+    margin-top: 25px;
+}
 
 @media only screen and (min-width: 650px) {
 
@@ -277,10 +291,11 @@ figcaption {
         /* margin-top: 30px;
         margin-bottom: 30px; */
     /* } */
-    
+
     .gallery {
         grid-template-columns: 25% 25% 25%;
     }
+
     .gallery img {
         width: 100%;
     }
@@ -288,6 +303,7 @@ figcaption {
     .p5_gallery {
         grid-template-columns: 40% 40%;
     }
+
     /* .p5_gallery img {
         width: 100%;
     } */
@@ -300,10 +316,11 @@ figcaption {
     /* h1 {
         /* margin-top: 50px; */
     /* } */
-    
+
     .gallery {
         grid-template-columns: 20% 20% 20% 20%;
     }
+
     .gallery img {
         width: 100%;
     }
@@ -311,6 +328,7 @@ figcaption {
     .p5_gallery {
         grid-template-columns: 30% 30% 30%;
     }
+
     .p5_gallery img {
         width: 100%;
     }
