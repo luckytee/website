@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <base target="_top">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Detroit Riverfront Land Use 1884-2024</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet" href="map_guts/style.css">
+    <link rel="stylesheet" href="map_guts/leaflet.groupedlayercontrol.css">
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/html5reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="libraries/p5.js"></script>
+    <script src="libraries/p5.dom.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <!-- <button type="button" id="mode" >night mode</button> -->
+        <nav>
+            <ul class="nav_links">
+                <!-- <li class="category">hello</li>
+                <li class="category">creative computing</li>
+                <li class="category">other projects</li>
+                <li class="category">resources</li> -->
+
+                <li class="nav_item"><a href="./index.html">about</a></li>
+                <li class="category">world</li>
+                <img src="images/globe.gif" width="65" height="50" alt="globe" />
+
+                <li class="nav_item"><a href="./cv.html">cv</a></li>
+                <li class="nav_item"><a href="./models.html">creative computing</a></li>
+                <img src="images/globe.gif" width="65" height="50" alt="globe" />
+                <li class="nav_item"><a href="./bears.html">circuits</a></li>
+                <li class="category">world</li>
+                <img src="images/globe.gif" width="65" height="50" alt="globe" />
+                <li class="category">world</li>
+                <li class="nav_item"><a href="./slime.html">schematics</a></li>
+                <li class="nav_item"><a href="./pdfs.html">resources</a></li>
+                <img src="images/globe.gif" width="65" height="50" alt="globe" />
+                <img src="images/globe.gif" width="65" height="50" alt="globe" />
+                <li class="active">map</a></li>
+                <li class="category">world</li>
+                <li class="nav_item"><a href="./tattoo.html">tattoo</a></li>
+                <img src="images/globe.gif" width="65" height="50" alt="globe" />
+                <li class="category">world</li>
+                <li class="nav_item"><a href="./bread.html">bread</a></li>
+                <img src="images/globe.gif" width="65" height="50" alt="globe" />
+                <img src="images/globe.gif" width="65" height="50" alt="globe" />
+                <img src="images/globe.gif" width="65" height="50" alt="globe" />
+
+            </ul>
+        </nav>
+        <!-- <script id="header_img" src="js/header.js"></script> -->
+    </header>
+
+
+    <h1>Detroit Riverfront Land Use 1884-2024
+        <script type="text/javascript" src="map_guts/thru_1950.js"></script>
+        <script type="text/javascript">
+            //TODO: MAKE H1 RESPONSIVE
+        </script>
+    </h1>
+    <div id="map">
+
+        <script type="text/javascript" src="map_guts/thru_1950.js"></script>
+        <script type="text/javascript" src="map_guts/leaflet.groupedlayercontrol.js"></script>
+        <script type="text/javascript">
+
+
+            //DEFAULT MAP
+            const map = L.map('map').setView([42.332, -83.05], 13);
+
+
+            //BASE LAYERS
+            //street map (default)
+            var street = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map); //add to map makes it default
+            //satellite
+            var satellite = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.{ext}', {
+                minZoom: 0,
+                maxZoom: 20,
+                attribution: '&copy; CNES, Distribution Airbus DS, © Airbus DS, © PlanetObserver (Contains Copernicus Data) | &copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                ext: 'jpg'
+            });
+
+
+            //ICONS
+            const CustomIcon = L.Icon.extend({
+                options: {
+                    iconSize: [24, 35],
+                    iconAnchor: [12, 35],
+                    popupAnchor: [10, -40]
+                }
+            });
+            var highlighted_marker = L.icon({
+                iconUrl: 'map_guts/icon_highlighted.png',
+                iconSize: [30, 45],
+                iconAnchor: [15, 45],
+                popupAnchor: [0, -50]
+            });
+
+
+            //ICON FUNCTIONS
+            //set style of omarker based on moused over
+            function mouse_highlight(feature, marker) {
+                marker.on('mouseover', function (alter_style) {
+                    var leaflet_obj2 = alter_style.target;
+                    marker.setIcon(marker.highlighted_marker);
+                });
+                marker.on('mouseout', function (origin_style) {
+                    var leaflet_obj3 = origin_style.target;
+                    marker.setIcon(getColor(feature.properties.type));
+                })
+            }
+            //set style of marker based on space type
+            const greenIcon = new CustomIcon({ iconUrl: 'map_guts/icon_green.png' });
+            const grayIcon = new CustomIcon({ iconUrl: 'map_guts/icon_gray.png' });
+            function getColor(type) {
+                return type == "rec" ? greenIcon : grayIcon;
+            }
+
+
+            //OVERLAY LAYERS
+            // all spaces
+            // var all = L.geoJson(spaces, {
+            //     // style,
+            //     // onEachFeature,
+            //     pointToLayer: function (feature, latlng) {
+            //         var tag = L.popup().setContent(feature.properties.name + "<br/>" + feature.properties.source_url);
+            //         return L.marker(latlng, { icon: getColor(feature.properties.type) });
+            //     }
+            // }).addTo(map); //not sure if this view is useful - deleting for now
+            //1884
+            var eighty_four = L.geoJson(spaces, {
+                filter: function (feature, layer) {
+                    return (feature.properties.year === 1884);
+                },
+                onEachFeature: mouse_highlight, //checks if feature is moused - over
+                pointToLayer: function (feature, latlng) {
+                    var tag = L.popup().setContent(feature.properties.name.link(feature.properties.source_url) + "<br/>" + feature.properties.year);
+                    var marker = L.marker(latlng, { icon: getColor(feature.properties.type) }).bindPopup(tag);
+                    marker.highlighted_marker = highlighted_marker; //calls marker / highlighted marker
+                    return marker;
+                }
+            }).addTo(map); //this line makes 1884 default
+            //1921-1922
+            var twenty_one = L.geoJson(spaces, {
+                filter: function (feature, layer) {
+                    return (feature.properties.year === 1921 ||
+                        feature.properties.year === 1922);
+                },
+                onEachFeature: mouse_highlight,
+                pointToLayer: function (feature, latlng) {
+                    var tag = L.popup().setContent(feature.properties.name.link(feature.properties.source_url) + "<br/>" + feature.properties.year);
+                    var marker = L.marker(latlng, { icon: getColor(feature.properties.type) }).bindPopup(tag);
+                    marker.highlighted_marker = highlighted_marker;
+                    return marker;
+                }
+            });
+            //1950-1951
+            var fifty = L.geoJson(spaces, {
+                filter: function (feature, layer) {
+                    return (feature.properties.year === 1950 ||
+                        feature.properties.year === 1951);
+                },
+                onEachFeature: mouse_highlight,
+                pointToLayer: function (feature, latlng) {
+                    var tag = L.popup().setContent(feature.properties.name.link(feature.properties.source_url) + "<br/>" + feature.properties.year);
+                    var marker = L.marker(latlng, { icon: getColor(feature.properties.type) }).bindPopup(tag);
+                    marker.highlighted_marker = highlighted_marker;
+                    return marker;
+                }
+            });
+
+
+            //LAYER CONTROL
+            var baseMaps = {
+                "Street Map": street,
+                "Satellite": satellite
+            };
+            var overlayMaps = {
+                "Years": {
+                    // "All": all,
+                    "1884": eighty_four,
+                    "1921-1922": twenty_one,
+                    "1950-1951": fifty
+                }
+            };
+
+            var options = {
+                exclusiveGroups: ["Years"]
+            }
+            //possibly order {1884, 1921, ... , All}
+            //maybe not an issue now that "All" not displayed...
+            // var overlayMaps;
+            // overlayMaps.push({ "All": all });
+            // overlayMaps.push({ "1884": eighty_four });
+            // overlayMaps.push({ "1921-1922": twenty_one });
+
+            //TODO: make layers responsive / mutually exclusive
+            var layerControl = L.control.groupedLayers(baseMaps, overlayMaps, options);
+            map.addControl(layerControl);
+
+
+
+            //TODO: INFO BOX
+            // var info = L.control();
+
+            // info.onAdd = function (map) {
+            //     this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+            //     this.update();
+            //     return this._div;
+            // };
+
+            // info.update = function (properties) {
+            //     this._div.innerHTML = '<h4>US Population Density</h4>' + properties.year;
+            // };
+
+            // info.addTo(map);
+        </script>
+    </div>
+
+</body>
+
+</html>
