@@ -64,6 +64,8 @@
                 <img src="images/globe.gif" width="65" height="50" alt="globe" />
                 <img src="images/globe.gif" width="65" height="50" alt="globe" />
 
+                //TODO: make sure other pages link to map as well
+
             </ul>
         </nav>
         <!-- <script id="header_img" src="js/header.js"></script> -->
@@ -154,7 +156,24 @@
                 },
                 onEachFeature: mouse_highlight, //checks if feature is moused - over
                 pointToLayer: function (feature, latlng) {
-                    var tag = L.popup().setContent(feature.properties.name.link(feature.properties.source_url) + "<br/>" + feature.properties.year);
+                    // // TODO: DEBUG Create a new image element 
+                    // var img = document.createElement('img');
+
+                    // // Set the source (src) attribute of the image 
+                    // img.src = 'map_guts/' + feature.properties.photo_link;
+
+                    // // Set any additional attributes like alt text, width, height, etc. 
+                    // // img.alt = 'An example image';
+                    // img.width = 150;
+                    // img.height = 200;
+
+                    // // // Get a reference to the container where you want to insert the image 
+                    // // var container = document.getElementById('imageContainer');
+
+                    // // // Append the image element to the container 
+                    // // tag.appendChild(img);
+                    var tag = L.popup().setContent(feature.properties.name.link(feature.properties.source_url)
+                        + "<br/>" + feature.properties.year);
                     var marker = L.marker(latlng, { icon: getColor(feature.properties.type) }).bindPopup(tag);
                     marker.highlighted_marker = highlighted_marker; //calls marker / highlighted marker
                     return marker;
@@ -236,7 +255,13 @@
             // info.addTo(map);
         </script>
     </div>
-
+    <main>
+        <p>This map was created in June of 2024 during my time as a Data Visualization Fellow at the University of
+            Michigan.
+            Many thanks to my amazing cohort--Paloma, Davis, Aman, Ashvin, Anaridia, and Vidhi--Justin, Tal, and the
+            rest of
+            the Clark Librarians. More robust description to come<span>&#9786;</span></p>
 </body>
+</main>
 
 </html>
